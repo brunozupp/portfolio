@@ -1,0 +1,176 @@
+﻿@model Infrastructure.DTOs.DetailsDTO
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home Page";
+
+    ViewBag.Phone = Model.Detail?.Phone ?? "Nenhum";
+    ViewBag.Email = Model.Detail?.Email ?? "Nenhum";
+
+    var socialMediaEnabled = (Model.Detail != null && (Model.Detail.Facebook != null ||
+        Model.Detail.Instagram != null || Model.Detail.Linkedin != null));
+
+    ViewBag.SocialMediaEnabled = socialMediaEnabled;
+
+    if (socialMediaEnabled)
+    {
+        ViewBag.Facebook = Model.Detail.Facebook;
+        ViewBag.Instagram = Model.Detail.Instagram;
+        ViewBag.Linkedin = Model.Detail.Linkedin;
+    }
+}
+
+@if (Model == null || Model.Detail == null)
+{
+    <h1>Nenhum portfólio foi encontrado</h1>
+}
+else
+{
+    <div class="container">
+        <div class="row align-items-stretch align-items-md-center">
+            <div class="col-12 col-md-7">
+                <div>
+                    <h6 class="">OLÁ, MEU NOME É</h6>
+                    <h1>@Model.Detail.Name</h1>
+                    <blockquote class="blockquote">
+                        <p>"Depois de olhar tanto para o monitor, pense em um livro como screensaver para o cérebro"</p>
+                    </blockquote>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md-5">
+                <img src="~/midia/profile/photo.jpg" class="img-fluid" />
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h3>Sobre mim</h3>
+                @if (Model.Detail != null && !String.IsNullOrWhiteSpace(Model.Detail.About))
+                {
+                    <p>@Model.Detail.About</p>
+                }
+                else
+                {
+                    <p>Nenhuma informação pessoal foi cadastrada</p>
+                }
+
+            </div>
+            <div class="col-12 col-md-6">
+                <h3>Meus Objetivos</h3>
+                @if (Model.Detail != null && !String.IsNullOrWhiteSpace(Model.Detail.Goals))
+                {
+                    <p>@Model.Detail.Goals</p>
+                }
+                else
+                {
+                    <p>Nenhum objetivo foi cadastrado</p>
+                }
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <h3>Experiências</h3>
+
+                @if (Model.Experiences != null && Model.Experiences.Count > 0)
+                {
+                    for (int i = 0; i < Model.Experiences.Count; i++)
+                    {
+                        var item = Model.Experiences[i];
+
+                        <h6>@item.Company</h6>
+                        <p>De: @String.Format("{0:dd/MM/yyyy}", item.Begin) - Até: @String.Format("{0:dd/MM/yyyy}", item.End)</p>
+                        
+                        <p>@item.Description</p>
+
+                        if (i != Model.Experiences.Count - 1)
+                        {
+                            <hr />
+                        }
+                    }
+
+                }
+                else
+                {
+                    <p>Nenhuma experiência foi cadastrada</p>
+                }
+
+                <br />
+
+                <h3>Projetos</h3>
+
+                @if (Model.Projects != null && Model.Projects.Count > 0)
+                {
+                    for (int i = 0; i < Model.Projects.Count; i++)
+                    {
+                        var item = Model.Projects[i];
+
+                        <h6>@item.Name</h6>
+                        <p>@item.Description</p>
+
+                        if (i != Model.Projects.Count - 1)
+                        {
+                            <hr />
+                        }
+                    }
+                }
+                else
+                {
+                    <p>Nenhum projeto foi cadastrado</p>
+                }
+
+            </div>
+
+            <div class="col-12 col-md-4">
+
+                <br class="d-md-none" />
+
+                <h3>Habilidades (0 à 5)</h3>
+
+                @if (Model.Skills != null && Model.Skills.Count > 0)
+                {
+                    <div>
+                        @foreach (var item in Model.Skills)
+                        {
+                            <button type="button" class="btn btn-primary mb-2">
+                                @item.Name <span class="badge badge-light">@item.Aptitude</span>
+                            </button>
+                        }
+                    </div>
+                    
+                }
+                else
+                {
+                    <p>Nenhuma habilidade foi cadastrada</p>
+                }
+
+                <hr />
+
+                <h3>Formações</h3>
+
+                @if (Model.AcademicTrainings != null && Model.AcademicTrainings.Count > 0)
+                {
+                    for (int i = 0; i < Model.AcademicTrainings.Count; i++)
+                    {
+                        var item = Model.AcademicTrainings[i];
+
+                        <h6>@item.Name</h6>
+                        <p>De: @String.Format("{0:dd/MM/yyyy}", item.Begin) - Até: @String.Format("{0:dd/MM/yyyy}", item.End)</p>
+                        <p>Instituição: @item.Institution</p>
+
+                        if (i != Model.AcademicTrainings.Count - 1)
+                        {
+                            <hr />
+                        }
+                    }
+                }
+                else
+                {
+                    <p>Nenhuma formação foi cadastrada</p>
+                }
+
+            </div>
+        </div>
+    </div>
+}

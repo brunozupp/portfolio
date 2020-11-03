@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">NoveliTech</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1 justify-content-end">
+                        <li class="nav-item mr-4">
+                            <p class="my-auto">Email: @ViewBag.Email</p>
+                        </li>
+                        <li class="nav-item">
+                            <p class="my-auto">Telefone: @ViewBag.Phone</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <br class="d-md-none" />
+    <br class="d-md-none" />
+    <br class="d-md-none" />
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-6">
+                    &copy; 2020 - www.site-portfolio-novelitech.com.br
+                </div>
+
+                @if (ViewBag.SocialMediaEnabled)
+                {
+                    <div class="ml-4 ml-md-0 col-12 col-md-6 text-right align-items-center">
+                        <div class="row align-items-center">
+                            <p>Visite minhas redes sociais:&nbsp;&nbsp;</p>
+
+                            @if (ViewBag.Facebook != null)
+                            {
+                                <a href="@ViewBag.Facebook" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                                <span>&nbsp; &nbsp;</span>
+                            }
+
+                            @if (ViewBag.Instagram != null)
+                            {
+                                <a href="@ViewBag.Instagram" target="_blank" style="color: Mediumslateblue;"><i class="fab fa-instagram fa-2x"></i></a>
+                                <span>&nbsp; &nbsp;</span>
+                            }
+
+                            @if (ViewBag.Linkedin != null)
+                            {
+                                <a href="@ViewBag.Linkedin" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                            }
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+            
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿@model Infrastructure.Models.Skill
+
+@{
+    ViewData["Title"] = "Save";
+    Layout = "~/Views/Shared/_PortfolioLayout.cshtml";
+}
+
+@if (Model?.ID != null && Model?.ID > 0)
+{
+    <h1>Alterar habilidade</h1>
+}
+else
+{
+    <h1>Nova habilidade</h1>
+}
+
+<hr />
+<div class="row">
+    <div class="col-12 col-md-6">
+        <form asp-action="Save">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="ID" class="form-control" hidden />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aptitude" class="control-label"></label>
+                <input asp-for="Aptitude" class="form-control number-decimal-single" />
+                <span asp-validation-for="Aptitude" class="text-danger"></span>
+            </div>
+            <div class="form-group text-right">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

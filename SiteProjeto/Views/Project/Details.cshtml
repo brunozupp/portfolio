@@ -1,0 +1,38 @@
+﻿@model Infrastructure.Models.Project
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_PortfolioLayout.cshtml";
+}
+
+<div class="d-flex row-hl">
+    <h1 class="item-hl">Detalhes do projeto</h1>
+
+    <div class="item-hl ml-auto">
+        <a asp-action="Save" asp-route-id="@Model.ID" class="btn btn-primary">Editar</a>
+    </div>
+</div>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Infrastructure.Models.Experience>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_PortfolioLayout.cshtml";
+}
+
+<div class="d-flex row-hl">
+    <h1 class="item-hl">Experiências</h1>
+
+    <div class="item-hl ml-auto">
+        <a asp-action="Save" class="btn btn-primary">Novo</a>
+    </div>
+</div>
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Begin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.End)
+            </th>
+            <th class="column-actions">
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @(item.Begin != null ? String.Format("{0:dd/MM/yyyy}", item.Begin) : "Não informado")
+            </td>
+            <td>
+                @(item.Begin != null ? String.Format("{0:dd/MM/yyyy}", item.End) : "Não informado")
+            </td>
+            <td>
+                <a asp-action="Save" asp-route-id="@item.ID" title="Editar">
+                    <i class="fas fa-pen-square fa-2x"></i>
+                </a>
+                <a asp-action="Details" asp-route-id="@item.ID" title="Detalhes">
+                    <i class="fas fa-list-alt fa-2x"></i>
+                </a>
+                <a asp-action="Delete" asp-route-id="@item.ID" title="Deletar">
+                    <i class="fas fa-trash fa-2x"></i>
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

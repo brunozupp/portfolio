@@ -1,0 +1,100 @@
+﻿@model Infrastructure.Models.Detail
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_PortfolioLayout.cshtml";
+}
+
+<div class="d-flex row-hl">
+    <h1 class="item-hl">Detalhes do perfil</h1>
+
+    @if (Model?.ID != null && Model?.ID > 0)
+    {
+        <div class="item-hl ml-auto">
+            <a asp-action="Save" class="btn btn-primary">Editar</a>
+        </div>
+    }
+</div>
+
+<div>
+    <hr />
+
+    @if (Model == null)
+    {
+        <h5>Nenhum detalhe foi cadastrado ainda</h5>
+        <p>
+            <a asp-action="Save" class="btn btn-primary">Criar ficha técnica</a>
+        </p>
+    }
+    else
+    {
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ID)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ID)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </dt>
+            <dd class="col-sm-10">
+                @String.Format("{0:dd/MM/yyyy}", Model.BirthDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Linkedin)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Linkedin)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Instagram)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Instagram)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Facebook)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Facebook)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nationality)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nationality)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.About)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.About)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Goals)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Goals)
+            </dd>
+        </dl>
+    }
+</div>

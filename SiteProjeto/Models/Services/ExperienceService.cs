@@ -21,13 +21,13 @@ namespace SiteProjeto.Models.Services
             client = new RestClient(configuration.GetSection("urlAPI").Value);
         }
 
-        public ResponseAPI<List<Experience>> GetAll()
+        public async Task<ResponseAPI<List<Experience>>> GetAll()
         {
             ResponseAPI<List<Experience>> responseAPI = new ResponseAPI<List<Experience>>();
 
             var request = new RestRequest(BASE_REQUEST);
 
-            var response = client.Get<List<Experience>>(request);
+            var response = await client.ExecuteAsync<List<Experience>>(request, Method.GET);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
@@ -38,14 +38,14 @@ namespace SiteProjeto.Models.Services
             return responseAPI;
         }
 
-        public ResponseAPI<Experience> Get(int id)
+        public async Task<ResponseAPI<Experience>> Get(int id)
         {
             ResponseAPI<Experience> responseAPI = new ResponseAPI<Experience>();
 
             var request = new RestRequest(BASE_REQUEST + "/{id}")
                 .AddUrlSegment("id", id);
 
-            var response = client.Get<Experience>(request);
+            var response = await client.ExecuteAsync<Experience>(request, Method.GET);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
@@ -56,13 +56,13 @@ namespace SiteProjeto.Models.Services
             return responseAPI;
         }
 
-        public ResponseAPI<int> Post(Experience experience)
+        public async Task<ResponseAPI<int>> Post(Experience experience)
         {
             ResponseAPI<int> responseAPI = new ResponseAPI<int>();
 
             var request = new RestRequest(BASE_REQUEST).AddJsonBody(experience);
 
-            var response = client.Post<dynamic>(request);
+            var response = await client.ExecuteAsync<dynamic>(request, Method.POST);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
@@ -73,27 +73,27 @@ namespace SiteProjeto.Models.Services
             return responseAPI;
         }
 
-        public ResponseAPI<object> Put(Experience experience)
+        public async Task<ResponseAPI<object>> Put(Experience experience)
         {
             ResponseAPI<object> responseAPI = new ResponseAPI<object>();
 
             var request = new RestRequest(BASE_REQUEST).AddJsonBody(experience);
 
-            var response = client.Put(request);
+            var response = await client.ExecuteAsync(request, Method.PUT);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
             return responseAPI;
         }
 
-        public ResponseAPI<object> Delete(int id)
+        public async Task<ResponseAPI<object>> Delete(int id)
         {
             ResponseAPI<object> responseAPI = new ResponseAPI<object>();
 
             var request = new RestRequest(BASE_REQUEST + "/{id}")
                 .AddUrlSegment("id", id);
 
-            var response = client.Delete(request);
+            var response = await client.ExecuteAsync(request, Method.DELETE);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 

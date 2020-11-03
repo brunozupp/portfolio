@@ -21,13 +21,13 @@ namespace SiteProjeto.Models.Services
             client = new RestClient(configuration.GetSection("urlAPI").Value);
         }
 
-        public ResponseAPI<List<AcademicTraining>> GetAll()
+        public async Task<ResponseAPI<List<AcademicTraining>>> GetAll()
         {
             ResponseAPI<List<AcademicTraining>> responseAPI = new ResponseAPI<List<AcademicTraining>>();
 
             var request = new RestRequest(BASE_REQUEST);
 
-            var response = client.Get<List<AcademicTraining>>(request);
+            var response = await client.ExecuteAsync<List<AcademicTraining>>(request, Method.GET);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
@@ -38,14 +38,14 @@ namespace SiteProjeto.Models.Services
             return responseAPI;
         }
 
-        public ResponseAPI<AcademicTraining> Get(int id)
+        public async Task<ResponseAPI<AcademicTraining>> Get(int id)
         {
             ResponseAPI<AcademicTraining> responseAPI = new ResponseAPI<AcademicTraining>();
 
             var request = new RestRequest(BASE_REQUEST + "/{id}")
                 .AddUrlSegment("id", id);
 
-            var response = client.Get<AcademicTraining>(request);
+            var response = await client.ExecuteAsync<AcademicTraining>(request, Method.GET);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
@@ -56,13 +56,13 @@ namespace SiteProjeto.Models.Services
             return responseAPI;
         }
 
-        public ResponseAPI<int> Post(AcademicTraining academicTraining)
+        public async Task<ResponseAPI<int>> Post(AcademicTraining academicTraining)
         {
             ResponseAPI<int> responseAPI = new ResponseAPI<int>();
 
             var request = new RestRequest(BASE_REQUEST).AddJsonBody(academicTraining);
 
-            var response = client.Post<dynamic>(request);
+            var response = await client.ExecuteAsync<dynamic>(request, Method.POST);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
@@ -73,27 +73,27 @@ namespace SiteProjeto.Models.Services
             return responseAPI;
         }
 
-        public ResponseAPI<object> Put(AcademicTraining academicTraining)
+        public async Task<ResponseAPI<object>> Put(AcademicTraining academicTraining)
         {
             ResponseAPI<object> responseAPI = new ResponseAPI<object>();
 
             var request = new RestRequest(BASE_REQUEST).AddJsonBody(academicTraining);
 
-            var response = client.Put(request);
+            var response = await client.ExecuteAsync(request, Method.PUT);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
             return responseAPI;
         }
 
-        public ResponseAPI<object> Delete(int id)
+        public async Task<ResponseAPI<object>> Delete(int id)
         {
             ResponseAPI<object> responseAPI = new ResponseAPI<object>();
 
             var request = new RestRequest(BASE_REQUEST + "/{id}")
                 .AddUrlSegment("id", id);
 
-            var response = client.Delete(request);
+            var response = await client.ExecuteAsync(request, Method.DELETE);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 

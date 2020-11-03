@@ -19,9 +19,9 @@ namespace SiteProjeto.Controllers
             service = detailService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            ResponseAPI<Detail> responseAPI = service.Get();
+            ResponseAPI<Detail> responseAPI = await service.Get();
 
             if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
             {
@@ -32,9 +32,9 @@ namespace SiteProjeto.Controllers
             return View(responseAPI.Content);
         }
 
-        public IActionResult Save()
+        public async Task<IActionResult> Save()
         {
-            ResponseAPI<Detail> responseAPI = service.Get();
+            ResponseAPI<Detail> responseAPI = await service.Get();
 
             if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
             {
@@ -52,7 +52,7 @@ namespace SiteProjeto.Controllers
         }
 
         [HttpPost]
-        public IActionResult Save(Detail detail)
+        public async Task<IActionResult> Save(Detail detail)
         {
             if (!ModelState.IsValid)
             {
@@ -62,7 +62,7 @@ namespace SiteProjeto.Controllers
 
             if (detail.ID > 0)
             {
-                ResponseAPI<object> responseAPI = service.Put(detail);
+                ResponseAPI<object> responseAPI = await service.Put(detail);
 
                 if (responseAPI.StatusCode == (int)HttpStatusCode.NoContent)
                 {
@@ -77,7 +77,7 @@ namespace SiteProjeto.Controllers
             }
             else
             {
-                ResponseAPI<int> responseAPI = service.Post(detail);
+                ResponseAPI<int> responseAPI = await service.Post(detail);
 
                 if (responseAPI.StatusCode == (int)HttpStatusCode.OK)
                 {

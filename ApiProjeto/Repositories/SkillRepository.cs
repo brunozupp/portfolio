@@ -13,42 +13,43 @@ namespace ApiProjeto.Repositories
     {
         public SkillRepository(IConfiguration configuration) : base(configuration) { }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             using var conn = Conn;
 
-            int rowsAffected = conn.Execute(@"DELETE FROM Skills WHERE ID = @id", new { id });
+            int rowsAffected = await conn.ExecuteAsync(@"DELETE FROM Skills WHERE ID = @id", new { id });
 
             return rowsAffected == 1;
         }
 
-        public Skill Get(int id)
+        public async Task<Skill> Get(int id)
         {
             using var conn = Conn;
 
-            return conn.Query<Skill>(@"SELECT * FROM Skills WHERE ID = @id", new { id }).SingleOrDefault();
+            return (await conn.QueryAsync<Skill>(@"SELECT * FROM Skills 
+                WHERE ID = @id", new { id })).SingleOrDefault();
         }
 
-        public IEnumerable<Skill> GetAll()
+        public async Task<IEnumerable<Skill>> GetAll()
         {
             using var conn = Conn;
 
-            return conn.Query<Skill>(@"SELECT * FROM Skills");
+            return await conn.QueryAsync<Skill>(@"SELECT * FROM Skills");
         }
 
-        public int Insert(Skill entity)
+        public async Task<int> Insert(Skill entity)
         {
             using var conn = Conn;
 
-            return conn.Query<int>(@"INSERT INTO Skills(Name,Aptitude) VALUES(@Name,@Aptitude)
-                SELECT SCOPE_IDENTITY()", entity).SingleOrDefault();
+            return (await conn.QueryAsync<int>(@"INSERT INTO Skills(Name,Aptitude) VALUES(@Name,@Aptitude)
+                SELECT SCOPE_IDENTITY()", entity)).SingleOrDefault();
         }
 
-        public bool Update(Skill entity)
+        public async Task<bool> Update(Skill entity)
         {
             using var conn = Conn;
 
-            int rowsAffected = conn.Execute(@"UPDATE Skills SET Name = @Name, 
+            int rowsAffected = await conn.ExecuteAsync(@"UPDATE Skills SET Name = @Name, 
                 Aptitude = @Aptitude WHERE ID = @ID", entity);
 
             return rowsAffected == 1;

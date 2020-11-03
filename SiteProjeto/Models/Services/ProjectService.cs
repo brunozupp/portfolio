@@ -21,13 +21,13 @@ namespace SiteProjeto.Models.Services
             client = new RestClient(configuration.GetSection("urlAPI").Value);
         }
 
-        public ResponseAPI<List<Project>> GetAll()
+        public async Task<ResponseAPI<List<Project>>> GetAll()
         {
             ResponseAPI<List<Project>> responseAPI = new ResponseAPI<List<Project>>();
 
             var request = new RestRequest(BASE_REQUEST);
 
-            var response = client.Get<List<Project>>(request);
+            var response = await client.ExecuteAsync<List<Project>>(request, Method.GET);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
@@ -38,14 +38,14 @@ namespace SiteProjeto.Models.Services
             return responseAPI;
         }
 
-        public ResponseAPI<Project> Get(int id)
+        public async Task<ResponseAPI<Project>> Get(int id)
         {
             ResponseAPI<Project> responseAPI = new ResponseAPI<Project>();
 
             var request = new RestRequest(BASE_REQUEST + "/{id}")
                 .AddUrlSegment("id", id);
 
-            var response = client.Get<Project>(request);
+            var response = await client.ExecuteAsync<Project>(request, Method.GET);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
@@ -56,13 +56,13 @@ namespace SiteProjeto.Models.Services
             return responseAPI;
         }
 
-        public ResponseAPI<int> Post(Project project)
+        public async Task<ResponseAPI<int>> Post(Project project)
         {
             ResponseAPI<int> responseAPI = new ResponseAPI<int>();
 
             var request = new RestRequest(BASE_REQUEST).AddJsonBody(project);
 
-            var response = client.Post<dynamic>(request);
+            var response = await client.ExecuteAsync<dynamic>(request, Method.POST);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
@@ -73,27 +73,27 @@ namespace SiteProjeto.Models.Services
             return responseAPI;
         }
 
-        public ResponseAPI<object> Put(Project project)
+        public async Task<ResponseAPI<object>> Put(Project project)
         {
             ResponseAPI<object> responseAPI = new ResponseAPI<object>();
 
             var request = new RestRequest(BASE_REQUEST).AddJsonBody(project);
 
-            var response = client.Put(request);
+            var response = await client.ExecuteAsync(request, Method.PUT);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
             return responseAPI;
         }
 
-        public ResponseAPI<object> Delete(int id)
+        public async Task<ResponseAPI<object>> Delete(int id)
         {
             ResponseAPI<object> responseAPI = new ResponseAPI<object>();
 
             var request = new RestRequest(BASE_REQUEST + "/{id}")
                 .AddUrlSegment("id", id);
 
-            var response = client.Delete(request);
+            var response = await client.ExecuteAsync(request, Method.DELETE);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 

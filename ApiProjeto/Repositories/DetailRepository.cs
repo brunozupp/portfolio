@@ -16,42 +16,43 @@ namespace ApiProjeto.Repositories
         public DetailRepository(IConfiguration configuration) : base(configuration) { }
 
         // Não vai ser usado
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             throw new NotImplementedException();
         }
 
         // Não vai ser usado
-        public IEnumerable<Detail> GetAll()
+        public async Task<IEnumerable<Detail>> GetAll()
         {
             using var conn = Conn;
 
-            return conn.Query<Detail>(@"SELECT * FROM Details");
+            return await conn.QueryAsync<Detail>(@"SELECT * FROM Details");
         }
 
-        public Detail Get(int id)
+        public async Task<Detail> Get(int id)
         {
             using var conn = Conn;
 
-            return conn.Query<Detail>(@"SELECT * FROM Details WHERE ID = @id", new { id }).SingleOrDefault();
+            return (await conn.QueryAsync<Detail>(@"SELECT * FROM Details 
+                WHERE ID = @id", new { id })).SingleOrDefault();
         }
 
-        public int Insert(Detail entity)
+        public async Task<int> Insert(Detail entity)
         {
             using var conn = Conn;
 
-            return conn.Query<int>(@"INSERT INTO Details(Name,Email,Phone,BirthDate,Linkedin,
+            return (await conn.QueryAsync<int>(@"INSERT INTO Details(Name,Email,Phone,BirthDate,Linkedin,
                 Instagram,Facebook,Nationality,About,Goals)
                 VALUES(@Name,@Email,@Phone,@BirthDate,@Linkedin,
                 @Instagram,@Facebook,@Nationality,@About,@Goals)
-                SELECT SCOPE_IDENTITY()", entity).SingleOrDefault();
+                SELECT SCOPE_IDENTITY()", entity)).SingleOrDefault();
         }
 
-        public bool Update(Detail entity)
+        public async Task<bool> Update(Detail entity)
         {
             using var conn = Conn;
 
-            int rowsAffected = conn.Execute(@"UPDATE Details SET Name = @Name, Email = @Email,
+            int rowsAffected = await conn.ExecuteAsync(@"UPDATE Details SET Name = @Name, Email = @Email,
                 Phone = @Phone, BirthDate = @BirthDate, 
                 Linkedin = @Linkedin, Instagram = @Instagram, 
                 Facebook = @Facebook, Nationality = @Nationality, 
@@ -61,21 +62,21 @@ namespace ApiProjeto.Repositories
             return rowsAffected == 1;
         }
 
-        public DetailsDTO GetPortfolio()
+        public async Task<DetailsDTO> GetPortfolio()
         {
             using var conn = Conn;
 
             DetailsDTO detailsDTO = new DetailsDTO();
 
-            detailsDTO.Detail = conn.Query<Detail>(@"SELECT D.* FROM Details D").FirstOrDefault();
+            detailsDTO.Detail = (await conn.QueryAsync<Detail>(@"SELECT D.* FROM Details D")).FirstOrDefault();
 
-            detailsDTO.Skills = conn.Query<Skill>(@"SELECT S.* FROM Skills S").ToList();
+            detailsDTO.Skills = (await conn.QueryAsync<Skill>(@"SELECT S.* FROM Skills S")).ToList();
 
-            detailsDTO.Experiences = conn.Query<Experience>(@"SELECT E.* FROM Experiences E").ToList();
+            detailsDTO.Experiences = (await conn.QueryAsync<Experience>(@"SELECT E.* FROM Experiences E")).ToList();
 
-            detailsDTO.Projects = conn.Query<Project>(@"SELECT P.* FROM Projects P").ToList();
+            detailsDTO.Projects = (await conn.QueryAsync<Project>(@"SELECT P.* FROM Projects P")).ToList();
 
-            detailsDTO.AcademicTrainings = conn.Query<AcademicTraining>(@"SELECT A.* FROM AcademicTrainings A").ToList();
+            detailsDTO.AcademicTrainings = (await conn.QueryAsync<AcademicTraining>(@"SELECT A.* FROM AcademicTrainings A")).ToList();
 
             return detailsDTO;
         }

@@ -24,11 +24,11 @@ namespace ApiProjeto.Controllers
         [Route("")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
             try
             {
-                var experiences = _repository.GetAll().ToList();
+                var experiences = (await _repository.GetAll()).ToList();
 
                 return Ok(experiences);
             }
@@ -43,11 +43,11 @@ namespace ApiProjeto.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
             try
             {
-                var experience = _repository.Get(id);
+                var experience = await _repository.Get(id);
 
                 if (experience == null) return NotFound();
 
@@ -63,13 +63,13 @@ namespace ApiProjeto.Controllers
         [Route("")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Create([FromBody] Experience experience)
+        public async Task<IActionResult> Create([FromBody] Experience experience)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var result = _repository.Insert(experience);
+                    var result = await _repository.Insert(experience);
 
                     if (result > 0)
                     {
@@ -91,13 +91,13 @@ namespace ApiProjeto.Controllers
         [Route("")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Update([FromBody] Experience experience)
+        public async Task<IActionResult> Update([FromBody] Experience experience)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var result = _repository.Update(experience);
+                    var result = await _repository.Update(experience);
 
                     if (result)
                     {
@@ -121,11 +121,11 @@ namespace ApiProjeto.Controllers
         [Route("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                _repository.Delete(id);
+                await _repository.Delete(id);
 
                 return NoContent();
             }

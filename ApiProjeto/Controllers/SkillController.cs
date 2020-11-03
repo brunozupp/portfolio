@@ -23,11 +23,11 @@ namespace ApiProjeto.Controllers
         [Route("")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
             try
             {
-                var skills = _repository.GetAll().ToList();
+                var skills = (await _repository.GetAll()).ToList();
 
                 return Ok(skills);
             }
@@ -42,11 +42,11 @@ namespace ApiProjeto.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
             try
             {
-                var skill = _repository.Get(id);
+                var skill = await _repository.Get(id);
 
                 if (skill == null) return NotFound();
 
@@ -62,13 +62,13 @@ namespace ApiProjeto.Controllers
         [Route("")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Create([FromBody] Skill skill)
+        public async Task<IActionResult> Create([FromBody] Skill skill)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var result = _repository.Insert(skill);
+                    var result = await _repository.Insert(skill);
 
                     if (result > 0)
                     {
@@ -90,13 +90,13 @@ namespace ApiProjeto.Controllers
         [Route("")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Update([FromBody] Skill skill)
+        public async Task<IActionResult> Update([FromBody] Skill skill)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var result = _repository.Update(skill);
+                    var result = await _repository.Update(skill);
 
                     if (result)
                     {
@@ -120,11 +120,11 @@ namespace ApiProjeto.Controllers
         [Route("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                _repository.Delete(id);
+                await _repository.Delete(id);
 
                 return NoContent();
             }

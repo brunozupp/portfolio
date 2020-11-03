@@ -22,13 +22,13 @@ namespace SiteProjeto.Models.Services
             client = new RestClient(configuration.GetSection("urlAPI").Value);
         }
 
-        public ResponseAPI<Detail> Get()
+        public async Task<ResponseAPI<Detail>> Get()
         {
             ResponseAPI<Detail> responseAPI = new ResponseAPI<Detail>();
 
             var request = new RestRequest(BASE_REQUEST);
 
-            var response = client.Get<Detail>(request);
+            var response = await client.ExecuteAsync<Detail>(request, Method.GET);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
@@ -39,13 +39,13 @@ namespace SiteProjeto.Models.Services
             return responseAPI;
         }
 
-        public ResponseAPI<DetailsDTO> GetPortfolio()
+        public async Task<ResponseAPI<DetailsDTO>> GetPortfolio()
         {
             ResponseAPI<DetailsDTO> responseAPI = new ResponseAPI<DetailsDTO>();
 
             var request = new RestRequest(BASE_REQUEST + "/getPortfolio");
 
-            var response = client.Get<Detail>(request);
+            var response = await client.ExecuteAsync<Detail>(request, Method.GET);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
@@ -56,13 +56,13 @@ namespace SiteProjeto.Models.Services
             return responseAPI;
         }
 
-        public ResponseAPI<int> Post(Detail detail)
+        public async Task<ResponseAPI<int>> Post(Detail detail)
         {
             ResponseAPI<int> responseAPI = new ResponseAPI<int>();
 
             var request = new RestRequest(BASE_REQUEST).AddJsonBody(detail);
 
-            var response = client.Post<dynamic>(request);
+            var response = await client.ExecuteAsync<dynamic>(request, Method.POST);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 
@@ -73,13 +73,13 @@ namespace SiteProjeto.Models.Services
             return responseAPI;
         }
 
-        public ResponseAPI<object> Put(Detail detail)
+        public async Task<ResponseAPI<object>> Put(Detail detail)
         {
             ResponseAPI<object> responseAPI = new ResponseAPI<object>();
 
             var request = new RestRequest(BASE_REQUEST).AddJsonBody(detail);
 
-            var response = client.Put(request);
+            var response = await client.ExecuteAsync(request, Method.PUT);
 
             responseAPI.StatusCode = (int)response.StatusCode;
 

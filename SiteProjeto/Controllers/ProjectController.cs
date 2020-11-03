@@ -19,9 +19,9 @@ namespace SiteProjeto.Controllers
             service = projectService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            ResponseAPI<List<Project>> responseAPI = service.GetAll();
+            ResponseAPI<List<Project>> responseAPI = await service.GetAll();
 
             if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
             {
@@ -32,9 +32,9 @@ namespace SiteProjeto.Controllers
             return View(responseAPI.Content);
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            ResponseAPI<Project> responseAPI = service.Get(id);
+            ResponseAPI<Project> responseAPI = await service.Get(id);
 
             if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
             {
@@ -51,7 +51,7 @@ namespace SiteProjeto.Controllers
             return View(responseAPI.Content);
         }
 
-        public IActionResult Save(int id = 0)
+        public async Task<IActionResult> Save(int id = 0)
         {
             if (id == 0)
             {
@@ -59,7 +59,7 @@ namespace SiteProjeto.Controllers
             }
             else
             {
-                ResponseAPI<Project> responseAPI = service.Get(id);
+                ResponseAPI<Project> responseAPI = await service.Get(id);
 
                 if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
                 {
@@ -78,7 +78,7 @@ namespace SiteProjeto.Controllers
         }
 
         [HttpPost]
-        public IActionResult Save(Project project)
+        public async Task<IActionResult> Save(Project project)
         {
             if (!ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace SiteProjeto.Controllers
 
             if (project.ID > 0)
             {
-                ResponseAPI<object> responseAPI = service.Put(project);
+                ResponseAPI<object> responseAPI = await service.Put(project);
 
                 if (responseAPI.StatusCode == (int)HttpStatusCode.NoContent)
                 {
@@ -103,7 +103,7 @@ namespace SiteProjeto.Controllers
             }
             else
             {
-                ResponseAPI<int> responseAPI = service.Post(project);
+                ResponseAPI<int> responseAPI = await service.Post(project);
 
                 if (responseAPI.StatusCode == (int)HttpStatusCode.OK)
                 {
@@ -118,9 +118,9 @@ namespace SiteProjeto.Controllers
             }
         }
 
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            ResponseAPI<object> responseAPI = service.Delete(id);
+            ResponseAPI<object> responseAPI = await service.Delete(id);
 
             if (responseAPI.StatusCode != (int)HttpStatusCode.NoContent)
                 ModelState.AddModelError("title", "Erro ao deletar o registro");

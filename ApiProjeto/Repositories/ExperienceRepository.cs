@@ -14,43 +14,44 @@ namespace ApiProjeto.Repositories
     {
         public ExperienceRepository(IConfiguration configuration) : base(configuration) { }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             using var conn = Conn;
 
-            int rowsAffected = conn.Execute(@"DELETE FROM Experiences WHERE ID = @id", new { id });
+            int rowsAffected = await conn.ExecuteAsync(@"DELETE FROM Experiences WHERE ID = @id", new { id });
 
             return rowsAffected == 1;
         }
 
-        public Experience Get(int id)
+        public async Task<Experience> Get(int id)
         {
             using var conn = Conn;
 
-            return conn.Query<Experience>(@"SELECT * FROM Experiences WHERE ID = @id", new { id }).SingleOrDefault();
+            return (await conn.QueryAsync<Experience>(@"SELECT * FROM Experiences 
+                WHERE ID = @id", new { id })).SingleOrDefault();
         }
 
-        public IEnumerable<Experience> GetAll()
+        public async Task<IEnumerable<Experience>> GetAll()
         {
             using var conn = Conn;
 
-            return conn.Query<Experience>(@"SELECT * FROM Experiences");
+            return await conn.QueryAsync<Experience>(@"SELECT * FROM Experiences");
         }
 
-        public int Insert(Experience entity)
+        public async Task<int> Insert(Experience entity)
         {
             using var conn = Conn;
 
-            return conn.Query<int>(@"INSERT INTO Experiences(Company,Description,[Begin],[End]) 
+            return (await conn.QueryAsync<int>(@"INSERT INTO Experiences(Company,Description,[Begin],[End]) 
             VALUES(@Company,@Description,@Begin,@End)
-            SELECT SCOPE_IDENTITY()", entity).SingleOrDefault();
+            SELECT SCOPE_IDENTITY()", entity)).SingleOrDefault();
         }
 
-        public bool Update(Experience entity)
+        public async Task<bool> Update(Experience entity)
         {
             using var conn = Conn;
 
-            int rowsAffected = conn.Execute(@"UPDATE Experiences SET Company = @Company, 
+            int rowsAffected = await conn.ExecuteAsync(@"UPDATE Experiences SET Company = @Company, 
                 Description = @Description, [Begin] = @Begin, [End] = @End WHERE ID = @ID", entity);
 
             return rowsAffected == 1;

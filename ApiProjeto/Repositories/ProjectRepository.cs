@@ -13,42 +13,43 @@ namespace ApiProjeto.Repositories
     {
         public ProjectRepository(IConfiguration configuration) : base(configuration) { }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             using var conn = Conn;
 
-            int rowsAffected = conn.Execute(@"DELETE FROM Projects WHERE ID = @id", new { id });
+            int rowsAffected = await conn.ExecuteAsync(@"DELETE FROM Projects WHERE ID = @id", new { id });
 
             return rowsAffected == 1;
         }
 
-        public Project Get(int id)
+        public async Task<Project> Get(int id)
         {
             using var conn = Conn;
 
-            return conn.Query<Project>(@"SELECT * FROM Projects WHERE ID = @id", new { id }).SingleOrDefault();
+            return (await conn.QueryAsync<Project>(@"SELECT * FROM Projects 
+                WHERE ID = @id", new { id })).SingleOrDefault();
         }
 
-        public IEnumerable<Project> GetAll()
+        public async Task<IEnumerable<Project>> GetAll()
         {
             using var conn = Conn;
 
-            return conn.Query<Project>(@"SELECT * FROM Projects");
+            return await conn.QueryAsync<Project>(@"SELECT * FROM Projects");
         }
 
-        public int Insert(Project entity)
+        public async Task<int> Insert(Project entity)
         {
             using var conn = Conn;
 
-            return conn.Query<int>(@"INSERT INTO Projects(Name,Description) VALUES(@Name,@Description)
-                SELECT SCOPE_IDENTITY()", entity).SingleOrDefault();
+            return (await conn.QueryAsync<int>(@"INSERT INTO Projects(Name,Description) VALUES(@Name,@Description)
+                SELECT SCOPE_IDENTITY()", entity)).SingleOrDefault();
         }
 
-        public bool Update(Project entity)
+        public async Task<bool> Update(Project entity)
         {
             using var conn = Conn;
 
-            int rowsAffected = conn.Execute(@"UPDATE Projects SET Name = @Name, 
+            int rowsAffected = await conn.ExecuteAsync(@"UPDATE Projects SET Name = @Name, 
                 Description = @Description WHERE ID = @ID", entity);
 
             return rowsAffected == 1;

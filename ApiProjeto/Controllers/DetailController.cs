@@ -24,12 +24,12 @@ namespace ApiProjeto.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             try
             {   
                 // Pegando o primeiro detalhe, por padrão, vai ter apenas um cadastrado
-                var detail = _repository.GetAll().ToList().FirstOrDefault();
+                var detail = (await _repository.GetAll()).ToList().FirstOrDefault();
 
                 if (detail == null)
                 {
@@ -49,12 +49,12 @@ namespace ApiProjeto.Controllers
         [Route("")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Create([FromBody] Detail detail)
+        public async Task<IActionResult> Create([FromBody] Detail detail)
         {
             try
             {
 
-                if(_repository.GetAll().Count() == 1)
+                if((await _repository.GetAll()).Count() == 1)
                 {
                     ModelState.AddModelError("title", "Usuário já foi inserido no banco");
 
@@ -63,7 +63,7 @@ namespace ApiProjeto.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    var result = _repository.Insert(detail);
+                    var result = await _repository.Insert(detail);
 
                     if (result > 0)
                     {
@@ -85,13 +85,13 @@ namespace ApiProjeto.Controllers
         [Route("")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Update([FromBody] Detail detail)
+        public async Task<IActionResult> Update([FromBody] Detail detail)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var result = _repository.Update(detail);
+                    var result = await _repository.Update(detail);
 
                     if (result)
                     {
@@ -114,11 +114,11 @@ namespace ApiProjeto.Controllers
         [Route("getPortfolio")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GetPortfolio()
+        public async Task<IActionResult> GetPortfolio()
         {
             try
             {
-                var portfolio = _repository.GetPortfolio();
+                var portfolio = await _repository.GetPortfolio();
 
                 return Ok(portfolio);
             }

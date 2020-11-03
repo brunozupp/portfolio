@@ -20,9 +20,9 @@ namespace SiteProjeto.Controllers
             service = skillService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            ResponseAPI<List<Skill>> responseAPI = service.GetAll();
+            ResponseAPI<List<Skill>> responseAPI = await service.GetAll();
 
             if(responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
             {
@@ -33,9 +33,9 @@ namespace SiteProjeto.Controllers
             return View(responseAPI.Content);
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            ResponseAPI<Skill> responseAPI = service.Get(id);
+            ResponseAPI<Skill> responseAPI = await service.Get(id);
 
             if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
             {
@@ -52,14 +52,14 @@ namespace SiteProjeto.Controllers
             return View(responseAPI.Content);
         }
 
-        public IActionResult Save(int id = 0)
+        public async Task<IActionResult> Save(int id = 0)
         {
             if(id == 0)
             {
                 return View();
             } else
             {
-                ResponseAPI<Skill> responseAPI = service.Get(id);
+                ResponseAPI<Skill> responseAPI = await service.Get(id);
 
                 if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
                 {
@@ -78,7 +78,7 @@ namespace SiteProjeto.Controllers
         }
 
         [HttpPost]
-        public IActionResult Save(Skill skill)
+        public async Task<IActionResult> Save(Skill skill)
         {
             if(!ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace SiteProjeto.Controllers
 
             if(skill.ID > 0)
             {
-                ResponseAPI<object> responseAPI = service.Put(skill);
+                ResponseAPI<object> responseAPI = await service.Put(skill);
 
                 if(responseAPI.StatusCode == (int)HttpStatusCode.NoContent)
                 {
@@ -101,7 +101,7 @@ namespace SiteProjeto.Controllers
 
             } else
             {
-                ResponseAPI<int> responseAPI = service.Post(skill);
+                ResponseAPI<int> responseAPI = await service.Post(skill);
 
                 if(responseAPI.StatusCode == (int)HttpStatusCode.OK)
                 {
@@ -115,9 +115,9 @@ namespace SiteProjeto.Controllers
             } 
         }
 
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            ResponseAPI<object> responseAPI = service.Delete(id);
+            ResponseAPI<object> responseAPI = await service.Delete(id);
 
             if (responseAPI.StatusCode != (int)HttpStatusCode.NoContent)
                 ModelState.AddModelError("title", "Erro ao deletar o registro");

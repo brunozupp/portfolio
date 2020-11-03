@@ -7,14 +7,14 @@ namespace ApiProjeto.Repositories
 {
     public interface IRepositoryBase<T>
     {
-        IEnumerable<T> GetAll();
+        Task<IEnumerable<T>> GetAll();
 
-        T Get(int id);
+        Task<T> Get(int id);
 
-        int Insert(T entity);
+        Task<int> Insert(T entity);
 
-        bool Update(T entity);
+        Task<bool> Update(T entity);
 
-        bool Delete(int id);
+        Task<bool> Delete(int id);
     }
 }

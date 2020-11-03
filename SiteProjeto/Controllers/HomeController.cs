@@ -28,9 +28,9 @@ namespace SiteProjeto.Controllers
             pathMidia = configuration.GetSection("pathMidia").Value;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            ResponseAPI<DetailsDTO> responseAPI = service.GetPortfolio();
+            ResponseAPI<DetailsDTO> responseAPI = await service.GetPortfolio();
 
             if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest) return View();
 

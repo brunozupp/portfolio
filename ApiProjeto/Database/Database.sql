@@ -21,6 +21,8 @@ CREATE TABLE Details(
 	Goals TEXT NOT NULL,
 )
 
+ALTER TABLE Details ADD Photo NVARCHAR(255)
+
 SELECT * FROM Details
 
 -- Formações Acadêmcias

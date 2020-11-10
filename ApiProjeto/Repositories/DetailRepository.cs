@@ -42,9 +42,9 @@ namespace ApiProjeto.Repositories
             using var conn = Conn;
 
             return (await conn.QueryAsync<int>(@"INSERT INTO Details(Name,Email,Phone,BirthDate,Linkedin,
-                Instagram,Facebook,Nationality,About,Goals)
+                Instagram,Facebook,Nationality,About,Goals,Photo)
                 VALUES(@Name,@Email,@Phone,@BirthDate,@Linkedin,
-                @Instagram,@Facebook,@Nationality,@About,@Goals)
+                @Instagram,@Facebook,@Nationality,@About,@Goals,@Photo)
                 SELECT SCOPE_IDENTITY()", entity)).SingleOrDefault();
         }
 
@@ -56,7 +56,7 @@ namespace ApiProjeto.Repositories
                 Phone = @Phone, BirthDate = @BirthDate, 
                 Linkedin = @Linkedin, Instagram = @Instagram, 
                 Facebook = @Facebook, Nationality = @Nationality, 
-                About = @About, Goals = @Goals
+                About = @About, Goals = @Goals, Photo = @Photo
                 WHERE ID = @ID", entity);
 
             return rowsAffected == 1;

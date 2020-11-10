@@ -42,5 +42,7 @@ namespace Infrastructure.Models
         [Required(ErrorMessage = "Objetivos são obrigatórios")]
         [Display(Name = "Objetivos")]
         public string Goals { get; set; }
+
+        public string Photo { get; set; }
     }
 }

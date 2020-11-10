@@ -26,5 +26,12 @@ C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimes
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\obj\Debug\netcoreapp3.1\ApiProjeto.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\obj\Debug\netcoreapp3.1\ApiProjeto.pdb
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\obj\Debug\netcoreapp3.1\ApiProjeto.genruntimeconfig.cache
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\obj\Debug\netcoreapp3.1\ApiProjeto.csproj.CoreCompileInputs.cache
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\obj\Debug\netcoreapp3.1\ApiProjeto.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\ImageHelper.dll
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\ImageHelper.pdb

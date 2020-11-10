@@ -1,4 +1,4 @@
-﻿@model Infrastructure.Models.Detail
+﻿@model Infrastructure.ViewModels.DetailViewModel
 
 @{
     ViewData["Title"] = "Save";
@@ -8,9 +8,10 @@
 <h1>Ficha técnica</h1>
 
 <hr />
-<div class="row">
-    <div class="col-12 col-md-6">
-        <form asp-action="Save">
+<form asp-action="Save" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-12 col-md-6">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input asp-for="ID" class="form-control" hidden />
             <div class="form-group">
@@ -63,12 +64,39 @@
                 <textarea asp-for="Goals" class="form-control" rows="5"></textarea>
                 <span asp-validation-for="Goals" class="text-danger"></span>
             </div>
+
+            <input asp-for="Photo" class="form-control" hidden/>
+
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
-        </form>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label class="control-label">Faça o upload de uma foto</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="PhotoUpload">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="PhotoUpload" name="PhotoUpload" aria-describedby="PhotoUpload" onchange="loadFile(event)">
+                        <label class="custom-file-label" for="PhotoUpload">Choose file</label>
+                    </div>
+                </div>
+            </div>
+
+            @{ var src = ""; }
+
+            @if (!String.IsNullOrWhiteSpace(Model?.Photo))
+            {
+                src = Model.Photo;
+            }
+
+            <img id="output" src="@src" class="img-fluid" />
+
+        </div>
     </div>
-</div>
+</form>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

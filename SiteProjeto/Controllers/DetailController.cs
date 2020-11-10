@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using AutoMapper;
 using Infrastructure.Models;
+using Infrastructure.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using SiteProjeto.Models;
 using SiteProjeto.Models.Services;
@@ -12,16 +14,18 @@ namespace SiteProjeto.Controllers
 {
     public class DetailController : Controller
     {
-        private readonly DetailService service;
+        private readonly DetailService _service;
+        private readonly IMapper _mapper;
 
-        public DetailController(DetailService detailService)
+        public DetailController(DetailService detailService, IMapper mapper)
         {
-            service = detailService;
+            _service = detailService;
+            _mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
         {
-            ResponseAPI<Detail> responseAPI = await service.Get();
+            ResponseAPI<Detail> responseAPI = await _service.Get();
 
             if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
             {
@@ -34,7 +38,7 @@ namespace SiteProjeto.Controllers
 
         public async Task<IActionResult> Save()
         {
-            ResponseAPI<Detail> responseAPI = await service.Get();
+            ResponseAPI<Detail> responseAPI = await _service.Get();
 
             if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
             {
@@ -48,21 +52,23 @@ namespace SiteProjeto.Controllers
                 return View();
             }
 
-            return View(responseAPI.Content);
+            DetailViewModel detailViewModel = _mapper.Map<DetailViewModel>(responseAPI.Content);
+
+            return View(detailViewModel);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(Detail detail)
+        public async Task<IActionResult> Save(DetailViewModel detailViewModel)
         {
             if (!ModelState.IsValid)
             {
                 ModelState.AddModelError("title", "As validações não foram atendidas");
-                return View(detail);
+                return View(detailViewModel);
             }
 
-            if (detail.ID > 0)
+            if (detailViewModel.ID > 0)
             {
-                ResponseAPI<object> responseAPI = await service.Put(detail);
+                ResponseAPI<object> responseAPI = await _service.Put(detailViewModel);
 
                 if (responseAPI.StatusCode == (int)HttpStatusCode.NoContent)
                 {
@@ -71,13 +77,13 @@ namespace SiteProjeto.Controllers
                 else
                 {
                     ModelState.AddModelError("title", "Erro ao atualizar o registro");
-                    return View(detail);
+                    return View(detailViewModel);
                 }
 
             }
             else
             {
-                ResponseAPI<int> responseAPI = await service.Post(detail);
+                ResponseAPI<int> responseAPI = await _service.Post(detailViewModel);
 
                 if (responseAPI.StatusCode == (int)HttpStatusCode.OK)
                 {
@@ -87,7 +93,7 @@ namespace SiteProjeto.Controllers
                 else
                 {
                     ModelState.AddModelError("title", "Erro ao cadastrar o registro");
-                    return View(detail);
+                    return View(detailViewModel);
                 }
             }
         }

@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "+Nj2dQPFlzOExUI6Njlvls5VpqadB9+3yEYea+IK4lDw5UQZPaOK5AsP009pvJCOCGez9BnnTqPxlfWYmnEvmA==",
+  "dgSpecHash": "FTQ4bK6LsPzAazt8qQP8N05dKb0DFvbrDh8/rKq7uM5vXQ0IcPBIJmWc5tm/QyvrJSJ1vBjX5uzwvD3SHG7NTw==",
   "success": true,
   "projectFilePath": "C:\\Users\\bruni\\Desktop\\Semestre8\\Programacao\\PrimeiroBimestre\\ProvaPrimeiroBimestre\\Infrastructure\\Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\bruni\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
+    "C:\\Users\\bruni\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
+    "C:\\Users\\bruni\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.9\\microsoft.aspnetcore.http.features.3.1.9.nupkg.sha512",
+    "C:\\Users\\bruni\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\bruni\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.0.0\\microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\bruni\\.nuget\\packages\\microsoft.extensions.options\\3.0.0\\microsoft.extensions.options.3.0.0.nupkg.sha512",
+    "C:\\Users\\bruni\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.9\\microsoft.extensions.primitives.3.1.9.nupkg.sha512",
+    "C:\\Users\\bruni\\.nuget\\packages\\system.io.pipelines\\4.7.3\\system.io.pipelines.4.7.3.nupkg.sha512",
+    "C:\\Users\\bruni\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

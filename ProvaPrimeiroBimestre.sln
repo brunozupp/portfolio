@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiProjeto", "ApiProjeto\Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{B97F8E3E-7432-43F8-97BC-53F57472F53E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteProjeto", "SiteProjeto\SiteProjeto.csproj", "{5C2F5E6A-BDAE-4B77-89AE-565D29F4A6BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteProjeto", "SiteProjeto\SiteProjeto.csproj", "{5C2F5E6A-BDAE-4B77-89AE-565D29F4A6BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageHelper", "ImageHelper\ImageHelper.csproj", "{6B054C94-475F-4D69-AE41-5D1C82B2AA3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{5C2F5E6A-BDAE-4B77-89AE-565D29F4A6BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C2F5E6A-BDAE-4B77-89AE-565D29F4A6BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C2F5E6A-BDAE-4B77-89AE-565D29F4A6BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B054C94-475F-4D69-AE41-5D1C82B2AA3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B054C94-475F-4D69-AE41-5D1C82B2AA3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B054C94-475F-4D69-AE41-5D1C82B2AA3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B054C94-475F-4D69-AE41-5D1C82B2AA3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

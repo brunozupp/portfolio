@@ -39,7 +39,16 @@ else
                 
             </div>
             <div class="col-12 col-md-5">
-                <img src="~/midia/profile/photo.jpg" class="img-fluid" />
+                @if (Model.Detail.Photo != null)
+                {
+                    var src = Model.Detail.Photo;
+                    <img src="@src" class="img-fluid" />
+                }
+                else
+                {
+                    <img src="~/midia/profile/photo.jpg" class="img-fluid" />
+                }
+
             </div>
         </div>
         <hr />

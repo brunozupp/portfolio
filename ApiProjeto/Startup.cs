@@ -1,15 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using ApiProjeto.Database;
 using ApiProjeto.Repositories;
+using ImageHelper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -28,6 +31,7 @@ namespace ApiProjeto
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<ImageService>();
             services.AddScoped<Connection>();
             services.AddScoped<ExperienceRepository>();
             services.AddScoped<AcademicTrainingRepository>();
@@ -43,6 +47,24 @@ namespace ApiProjeto
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseStaticFiles();
+
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "Upload")
+                ),
+                RequestPath = "/Upload"
+            });
+
+            app.UseDirectoryBrowser(new DirectoryBrowserOptions()
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "Upload")
+                ),
+                RequestPath = "/Upload"
+            });
 
             app.UseHttpsRedirection();
 

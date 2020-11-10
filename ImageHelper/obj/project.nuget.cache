@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "QGTek4R/N7oZYiKy+ue2rt8OKw4VJ4EjnIO0COA6JoR0tNKXB8UrXNS1OaMHUTnBbnULfUzbsMp1pksYylIpkg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bruni\\Desktop\\Semestre8\\Programacao\\PrimeiroBimestre\\ProvaPrimeiroBimestre\\ImageHelper\\ImageHelper.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bruni\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.9\\microsoft.aspnetcore.http.features.3.1.9.nupkg.sha512",
+    "C:\\Users\\bruni\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.9\\microsoft.extensions.primitives.3.1.9.nupkg.sha512",
+    "C:\\Users\\bruni\\.nuget\\packages\\system.io.pipelines\\4.7.3\\system.io.pipelines.4.7.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,6 +1,5 @@
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Debug\netcoreapp3.1\SiteProjeto.exe
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
@@ -413,3 +412,4 @@ C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimes
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Debug\netcoreapp3.1\SiteProjeto.csproj.CoreCompileInputs.cache
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Debug\netcoreapp3.1\SiteProjeto.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Debug\netcoreapp3.1\SiteProjeto.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Debug\netcoreapp3.1\scopedcss\bundle\SiteProjeto.styles.css

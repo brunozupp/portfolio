@@ -1,6 +1,5 @@
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\ApiProjeto.exe
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\obj\Debug\netcoreapp3.1\ApiProjeto.csprojAssemblyReference.cache
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\obj\Debug\netcoreapp3.1\ApiProjeto.AssemblyInfoInputs.cache
@@ -35,3 +34,4 @@ C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimes
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\obj\Debug\netcoreapp3.1\ApiProjeto.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\ImageHelper.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\ImageHelper.pdb
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\obj\Debug\netcoreapp3.1\scopedcss\bundle\ApiProjeto.styles.css

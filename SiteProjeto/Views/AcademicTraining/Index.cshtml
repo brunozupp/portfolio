@@ -36,36 +36,10 @@
             </th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Institution)
-            </td>
-            <td>
-                @(item.Begin != null ? String.Format("{0:dd/MM/yyyy}", item.Begin) : "Não informado")
-            </td>
-            <td>
-                @(item.Begin != null ? String.Format("{0:dd/MM/yyyy}", item.End) : "Não informado")
-            </td>
-            <td>
-                <a asp-action="Save" asp-route-id="@item.ID" title="Editar">
-                    <i class="fas fa-pen-square fa-2x"></i>
-                </a>
-                <a asp-action="Details" asp-route-id="@item.ID" title="Detalhes">
-                    <i class="fas fa-list-alt fa-2x"></i>
-                </a>
-                <a asp-action="Delete" asp-route-id="@item.ID" title="Deletar">
-                    <i class="fas fa-trash fa-2x"></i>
-                </a>
-            </td>
-        </tr>
-}
+    <tbody id="tbodyLoad">
     </tbody>
 </table>
+
+@section Scripts {
+    <script src="~/js/academicTraining.js"></script>
+}

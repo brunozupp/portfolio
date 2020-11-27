@@ -19,17 +19,35 @@ namespace SiteProjeto.Controllers
             service = experienceService;
         }
 
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    ResponseAPI<List<Experience>> responseAPI = await service.GetAll();
+
+        //    if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
+        //    {
+        //        ModelState.AddModelError("title", "Erro ao tentar acessar o serviço");
+        //        return View();
+        //    }
+
+        //    return View(responseAPI.Content);
+        //}
+
+        public IActionResult Index()
+        {
+
+            return View();
+        }
+
+        public async Task<IActionResult> GetAll()
         {
             ResponseAPI<List<Experience>> responseAPI = await service.GetAll();
 
             if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
             {
-                ModelState.AddModelError("title", "Erro ao tentar acessar o serviço");
-                return View();
+                return Json(new { error = true });
             }
 
-            return View(responseAPI.Content);
+            return Json(new { error = false, data = responseAPI.Content });
         }
 
         public async Task<IActionResult> Details(int id)
@@ -123,9 +141,9 @@ namespace SiteProjeto.Controllers
             ResponseAPI<object> responseAPI = await service.Delete(id);
 
             if (responseAPI.StatusCode != (int)HttpStatusCode.NoContent)
-                ModelState.AddModelError("title", "Erro ao deletar o registro");
+                return Json(new { error = true });
 
-            return RedirectToAction("Index");
+            return Json(new { error = false });
         }
     }
 }

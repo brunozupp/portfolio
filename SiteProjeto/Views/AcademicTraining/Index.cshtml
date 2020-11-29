@@ -42,4 +42,21 @@
 
 @section Scripts {
     <script src="~/js/academicTraining.js"></script>
+
+    @if (ViewBag.notification != null)
+    {
+        Notification notification = ViewBag.notification as Notification;
+
+        <script type="text/javascript">
+
+                document.addEventListener("DOMContentLoaded", function () {
+
+                    notification(
+                        "@notification.type",
+                        "@notification.content"
+                    );
+                });
+
+        </script>
+    }
 }

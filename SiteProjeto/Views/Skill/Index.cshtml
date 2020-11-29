@@ -31,10 +31,26 @@
         </tr>
     </thead>
     <tbody id="tbodyLoad">
-        
     </tbody>
 </table>
 
 @section Scripts {
     <script src="~/js/skill.js"></script>
+
+    @if (ViewBag.notification != null)
+    {
+        Notification notification = ViewBag.notification as Notification;
+
+        <script type="text/javascript">
+
+                document.addEventListener("DOMContentLoaded", function () {
+
+                    notification(
+                        "@notification.type",
+                        "@notification.content"
+                    );
+                });
+
+        </script>
+    }
 }

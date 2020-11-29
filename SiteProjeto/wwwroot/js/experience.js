@@ -1,4 +1,6 @@
-﻿// Assim que carregar a página
+﻿const CONTROLLER = "Experience";
+
+// Assim que carregar a página
 $(document).ready(function () {
 
     loadTable();
@@ -6,7 +8,7 @@ $(document).ready(function () {
 
 function loadTable() {
 
-    var url = buildBaseURL('Experience', 'GetAll');
+    var url = buildBaseURL(CONTROLLER, 'GetAll');
 
     $.get(url, function(response) {
 
@@ -26,14 +28,14 @@ function loadTable() {
                             <td>${showDate(item.begin)}</td>
                             <td>${showDate(item.end)}</td>
                             <td>
-                                <a asp-action="Save" asp-route-id="${item.id}" title="Editar">
+                                <a href="/${CONTROLLER}/Save/${item.id}" title="Editar">
                                     <i class="fas fa-pen-square fa-2x"></i>
                                 </a>
-                                <a asp-action="Details" asp-route-id="${item.id}" title="Detalhes">
+                                <a href="/${CONTROLLER}/Details/${item.id}" title="Detalhes">
                                     <i class="fas fa-list-alt fa-2x"></i>
                                 </a>
                                 <button class="deleteConfirmation btn btn-sm" data-value='{"id": ${item.id}}'
-                                        data-controller="Experience" data-action="Delete" title="Deletar">
+                                        data-controller="${CONTROLLER}" data-action="Delete" title="Deletar">
                                     <i class="fas fa-trash fa-2x"></i>
                                 </button>
                             </td>
@@ -57,7 +59,7 @@ function settings() {
         var btn = $(this);
 
         var value = btn.data("value");
-        var url = buildBaseURL('Experience', 'Delete');
+        var url = buildBaseURL(CONTROLLER, 'Delete');
 
         deleteRegister(url, value, loadTable);
     });

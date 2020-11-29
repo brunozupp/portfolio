@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Infrastructure.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using SiteProjeto.Models;
 using SiteProjeto.Models.Services;
 
@@ -19,21 +20,16 @@ namespace SiteProjeto.Controllers
             service = experienceService;
         }
 
-        //public async Task<IActionResult> Index()
-        //{
-        //    ResponseAPI<List<Experience>> responseAPI = await service.GetAll();
-
-        //    if (responseAPI.StatusCode == (int)HttpStatusCode.BadRequest)
-        //    {
-        //        ModelState.AddModelError("title", "Erro ao tentar acessar o serviço");
-        //        return View();
-        //    }
-
-        //    return View(responseAPI.Content);
-        //}
+        [TempData]
+        public string Notification { get; set; }
 
         public IActionResult Index()
         {
+
+            if (!String.IsNullOrWhiteSpace(Notification))
+            {
+                ViewBag.notification = JsonConvert.DeserializeObject<Notification>(Notification);
+            }
 
             return View();
         }
@@ -110,11 +106,24 @@ namespace SiteProjeto.Controllers
 
                 if (responseAPI.StatusCode == (int)HttpStatusCode.NoContent)
                 {
-                    return RedirectToAction("Details", new { id = experience.ID });
+                    Notification = JsonConvert.SerializeObject(new Notification
+                    {
+                        type = "success",
+                        content = "Sucesso ao atualizar o registro"
+                    });
+
+                    return RedirectToAction("Index");
                 }
                 else
                 {
                     ModelState.AddModelError("title", "Erro ao atualizar o registro");
+
+                    Notification = JsonConvert.SerializeObject(new Notification
+                    {
+                        type = "error",
+                        content = "Erro ao atualizar o registro"
+                    });
+
                     return View(experience);
                 }
 
@@ -125,12 +134,25 @@ namespace SiteProjeto.Controllers
 
                 if (responseAPI.StatusCode == (int)HttpStatusCode.OK)
                 {
-                    return RedirectToAction("Details", new { id = responseAPI.Content });
 
+                    Notification = JsonConvert.SerializeObject(new Notification
+                    {
+                        type = "success",
+                        content = "Sucesso ao cadastrar o registro"
+                    });
+
+                    return RedirectToAction("Index");
                 }
                 else
                 {
                     ModelState.AddModelError("title", "Erro ao cadastrar o registro");
+
+                    Notification = JsonConvert.SerializeObject(new Notification
+                    {
+                        type = "error",
+                        content = "Erro ao cadastrar o registro"
+                    });
+
                     return View(experience);
                 }
             }

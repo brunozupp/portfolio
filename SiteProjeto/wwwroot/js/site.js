@@ -11,7 +11,7 @@ $('input[type="file"]').change(function (e) {
     $('.custom-file-label').html(fileName);
 });
 
-var loadFile = function (event) {
+function loadFile (event) {
     var image = document.getElementById('output');
     image.src = URL.createObjectURL(event.target.files[0]);
 };
@@ -78,4 +78,42 @@ function deleteRegister(url, data, callback) {
             }
         }
     });
+}
+
+function notification(type, content, title) {
+
+    switch (type) {
+
+        case "success":
+            notificationSuccess(content, title);
+            break;
+
+        case "error":
+            notificationError(content, title);
+
+        default:
+            return;
+    }
+}
+
+function notificationSuccess(content,title) {
+
+    if (content == null || content == "")
+        content = "Operação realizada com sucesso";
+
+    if (title == null || title == "")
+        title = "Sucesso!";
+
+    toastr.success(content, title);
+}
+
+function notificationError(content, title) {
+
+    if (content == null || content == "")
+        content = "Operação não realizada";
+
+    if (title == null || title == "")
+        title = "Erro!";
+
+    toastr.error(content, title);
 }

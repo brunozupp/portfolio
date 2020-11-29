@@ -3,9 +3,10 @@
 
 // Write your JavaScript code.
 
-// https://localhost:44361
+// Constantes
 const URL_BASE = window.location.origin;
 
+// Funções da parte administrativa
 $('input[type="file"]').change(function (e) {
     var fileName = e.target.files[0].name;
     $('.custom-file-label').html(fileName);

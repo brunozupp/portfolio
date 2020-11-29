@@ -26,158 +26,209 @@
 }
 else
 {
-    <div class="container">
-        <div class="row align-items-stretch align-items-md-center">
-            <div class="col-12 col-md-7">
-                <div>
-                    <h6 class="">OLÁ, MEU NOME É</h6>
-                    <h1>@Model.Detail.Name</h1>
-                    <blockquote class="blockquote">
-                        <p>"Depois de olhar tanto para o monitor, pense em um livro como screensaver para o cérebro"</p>
-                    </blockquote>
+    <div class="bg-light">
+
+        <div class="container" style="margin-top:55px">
+            <div class="row align-items-stretch align-items-md-center">
+                <div class="col-12 col-md-7">
+                    <div>
+                        <h6 class="mt-md-0 mt-5">SEJA BEM-VINDO(A) AO MEU PORTFÓLIO, ME CHAMO</h6>
+                        <h1>@Model.Detail.Name</h1>
+                        <blockquote class="blockquote">
+                            <p>"Um código nada mais é do que o mais puro reflexo de nossa mente"</p>
+                        </blockquote>
+                    </div>
+
                 </div>
-                
-            </div>
-            <div class="col-12 col-md-5">
-                @if (Model.Detail.Photo != null)
-                {
-                    var src = Model.Detail.Photo;
-                    <img src="@src" class="img-fluid" />
-                }
-                else
-                {
-                    <img src="~/midia/profile/photo.jpg" class="img-fluid" />
-                }
-
-            </div>
-        </div>
-        <hr />
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <h3>Sobre mim</h3>
-                @if (Model.Detail != null && !String.IsNullOrWhiteSpace(Model.Detail.About))
-                {
-                    <p>@Model.Detail.About</p>
-                }
-                else
-                {
-                    <p>Nenhuma informação pessoal foi cadastrada</p>
-                }
-
-            </div>
-            <div class="col-12 col-md-6">
-                <h3>Meus Objetivos</h3>
-                @if (Model.Detail != null && !String.IsNullOrWhiteSpace(Model.Detail.Goals))
-                {
-                    <p>@Model.Detail.Goals</p>
-                }
-                else
-                {
-                    <p>Nenhum objetivo foi cadastrado</p>
-                }
-            </div>
-        </div>
-        <hr />
-        <div class="row">
-            <div class="col-12 col-md-8">
-                <h3>Experiências</h3>
-
-                @if (Model.Experiences != null && Model.Experiences.Count > 0)
-                {
-                    for (int i = 0; i < Model.Experiences.Count; i++)
+                <div class="col-12 col-md-5">
+                    @if (Model.Detail.Photo != null)
                     {
-                        var item = Model.Experiences[i];
-
-                        <h6>@item.Company</h6>
-                        <p>De: @String.Format("{0:dd/MM/yyyy}", item.Begin) - Até: @String.Format("{0:dd/MM/yyyy}", item.End)</p>
-                        
-                        <p>@item.Description</p>
-
-                        if (i != Model.Experiences.Count - 1)
-                        {
-                            <hr />
-                        }
+                        var src = Model.Detail.Photo;
+                        <img src="@src" class="img-fluid my-3" />
+                    }
+                    else
+                    {
+                        <img src="~/midia/profile/photo.jpg" class="img-main" />
                     }
 
-                }
-                else
-                {
-                    <p>Nenhuma experiência foi cadastrada</p>
-                }
-
-                <br />
-
-                <h3>Projetos</h3>
-
-                @if (Model.Projects != null && Model.Projects.Count > 0)
-                {
-                    for (int i = 0; i < Model.Projects.Count; i++)
-                    {
-                        var item = Model.Projects[i];
-
-                        <h6>@item.Name</h6>
-                        <p>@item.Description</p>
-
-                        if (i != Model.Projects.Count - 1)
-                        {
-                            <hr />
-                        }
-                    }
-                }
-                else
-                {
-                    <p>Nenhum projeto foi cadastrado</p>
-                }
-
+                </div>
             </div>
+        </div>
+    </div>
 
-            <div class="col-12 col-md-4">
+    <div>
+        
+        <div class="container-group-information py-4" id="about-me">
+            <div class="container">
+                <h2 class="text-center title">Sobre mim</h2>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="~/midia/profile/quem-sou.jpg" class="img-fluid" />
+                    </div>
+                    <div class="col-md-9">
+                        <p>@Model.Detail.About</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                <br class="d-md-none" />
+        <div class="container-group-information bg-light py-4" id="goals">
+            <div class="container">
+                <h2 class="text-center title">Objetivos</h2>
+                <div class="row">
+                    <div class="col-md-9">
+                        <p>@Model.Detail.Goals</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="~/midia/profile/objetivos.png" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                <h3>Habilidades (0 à 5)</h3>
+        <div class="container-group-information py-4" id="skills">
+            <div class="container text-center">
+                <h2 class="text-center title">Habilidades (0 á 5)</h2>
 
                 @if (Model.Skills != null && Model.Skills.Count > 0)
                 {
                     <div>
-                        @foreach (var item in Model.Skills)
+                        @foreach (var item in Model.Skills.OrderBy(c => c.Name))
                         {
-                            <button type="button" class="btn btn-primary mb-2">
+                            <button type="button" class="btn btn-dark mb-2">
                                 @item.Name <span class="badge badge-light">@item.Aptitude</span>
                             </button>
                         }
                     </div>
-                    
+
                 }
                 else
                 {
                     <p>Nenhuma habilidade foi cadastrada</p>
                 }
 
-                <hr />
+            </div>
+        </div>
 
-                <h3>Formações</h3>
-
+        <div class="container-group-information bg-light py-4" id="academic-training">
+            <div class="container">
+                <h2 class="text-center title">Formações</h2>
                 @if (Model.AcademicTrainings != null && Model.AcademicTrainings.Count > 0)
                 {
-                    for (int i = 0; i < Model.AcademicTrainings.Count; i++)
-                    {
-                        var item = Model.AcademicTrainings[i];
 
-                        <h6>@item.Name</h6>
-                        <p>De: @String.Format("{0:dd/MM/yyyy}", item.Begin) - Até: @String.Format("{0:dd/MM/yyyy}", item.End)</p>
-                        <p>Instituição: @item.Institution</p>
+                    <div class="row">
 
-                        if (i != Model.AcademicTrainings.Count - 1)
+                        @for (int i = 0; i < Model.AcademicTrainings.Count; i++)
                         {
-                            <hr />
+                            var item = Model.AcademicTrainings[i];
+
+                            <div class="col-md-4 col-12 text-center">
+                                <h6>@item.Name</h6>
+                                <p class="mb-0">De: @String.Format("{0:dd/MM/yyyy}", item.Begin) - Até: @String.Format("{0:dd/MM/yyyy}", item.End)</p>
+                                <p class="item-academic-training">Instituição: @item.Institution</p>
+                            </div>
+
                         }
-                    }
+
+                    </div>
+
                 }
                 else
                 {
                     <p>Nenhuma formação foi cadastrada</p>
                 }
+            </div>
+        </div>
+
+        <div class="container-group-information py-4" id="experiences">
+            <div class="container">
+                <h2 class="text-center title">Experiências</h2>
+                <div class="row">
+                    @if (Model.Experiences != null && Model.Experiences.Count > 0)
+                    {
+                        for (int i = 0; i < Model.Experiences.Count; i++)
+                        {
+                            var item = Model.Experiences[i];
+
+                            <div class="col-md-6 col-12">
+                                <h6>@item.Company</h6>
+                                <p class="mb-0">De: @String.Format("{0:dd/MM/yyyy}", item.Begin) - Até: @String.Format("{0:dd/MM/yyyy}", item.End)</p>
+                                <p class="item-experience">@item.Description</p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>Nenhuma experiência foi cadastrada</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="container-group-information bg-light py-4" id="projects">
+            <div class="container">
+                <h2 class="text-center title">Projetos</h2>
+                <div class="row">
+                    @if (Model.Projects != null && Model.Projects.Count > 0)
+                    {
+                        for (int i = 0; i < Model.Projects.Count; i++)
+                        {
+                            var item = Model.Projects[i];
+
+                            <div class="col-12">
+                                <h6>@item.Name</h6>
+
+
+                                @if (i != Model.Projects.Count - 1)
+                                {
+                                    <p class="item-experience">@item.Description</p>
+                                }
+                                else
+                                {
+                                    <p>@item.Description</p>
+                                }
+
+                            </div>
+
+                        }
+                    }
+                    else
+                    {
+                        <p>Nenhum projeto foi cadastrado</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="container-group-information py-4" id="contact">
+            <div class="container">
+                <h2 class="title text-center">Contato</h2>
+
+                <p class="text-center">Caso tenha alguma dúvida, entre em contato comigo pelos seguintes meios:</p>
+
+                <div class="row text-md-center text-left">
+
+                    <div class="col-md-6 col-12">
+                        <div class="align-middle">
+                            <i class="fas fa-envelope-square fa-3x" style="color: black"></i>
+                            <span>&nbsp;</span>
+                            <p class="d-inline-block align-middle pb-2">
+                                Email: @Model.Detail.Email
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-12">
+                        <div class="align-middle">
+                            <i class="fas fa-phone-square-alt fa-3x" style="color: black"></i>
+                            <span>&nbsp;</span>
+                            <p class="d-inline-block align-middle pb-2">
+                                Telefone: @Model.Detail.Phone
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
         </div>

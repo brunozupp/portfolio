@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using ApiProjeto.Repositories;
 using ImageHelper;
 using Infrastructure.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 namespace ApiProjeto.Controllers
 {
@@ -59,8 +61,11 @@ namespace ApiProjeto.Controllers
         [Route("")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Create([FromForm] Detail detail)
+        public async Task<IActionResult> Create([FromForm] string obj, [FromForm] IFormFile photo)
         {
+
+            Detail detail = JsonConvert.DeserializeObject<Detail>(obj);
+
             try
             {
 
@@ -73,7 +78,8 @@ namespace ApiProjeto.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    if(Request.Form.Files != null && Request.Form.Files.Count > 0)
+                    if (photo != null)
+                    //if(Request.Form.Files != null && Request.Form.Files.Count > 0)
                     {
                         ImageModel image = await _imageService.Save(Request.Form.Files[0], @"Upload\Details");
 
@@ -105,17 +111,23 @@ namespace ApiProjeto.Controllers
             }
         }
 
+        //[Consumes("multipart/form-data")]
         [HttpPut]
         [Route("")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update([FromForm] Detail detail)
+        [EnableCors("AllowOrigin")]
+        public async Task<IActionResult> Update([FromForm] string obj, [FromForm] IFormFile photo)
         {
+
+            Detail detail = JsonConvert.DeserializeObject<Detail>(obj);
+
             try
             {
                 if (ModelState.IsValid)
                 {
-                    if (Request.Form.Files != null && Request.Form.Files.Count > 0)
+                    if(photo != null)
+                    //if (Request.Form.Files != null && Request.Form.Files.Count > 0)
                     {
                         // Caso não seja a primeira alteração, não terei uma foto
                         if(!String.IsNullOrWhiteSpace(detail.Photo))

@@ -52,12 +52,25 @@ namespace ApiProjeto.Repositories
         {
             using var conn = Conn;
 
-            int rowsAffected = await conn.ExecuteAsync(@"UPDATE Details SET Name = @Name, Email = @Email,
+            int rowsAffected;
+
+            if (String.IsNullOrWhiteSpace(entity.Photo))
+            {
+                rowsAffected = await conn.ExecuteAsync(@"UPDATE Details SET Name = @Name, Email = @Email,
                 Phone = @Phone, BirthDate = @BirthDate, 
                 Linkedin = @Linkedin, Instagram = @Instagram, 
                 Facebook = @Facebook, Nationality = @Nationality, 
+                About = @About, Goals = @Goals
+                WHERE ID = @ID", entity);
+            } else
+            {
+                rowsAffected = await conn.ExecuteAsync(@"UPDATE Details SET Name = @Name, Email = @Email,
+                Phone = @Phone, BirthDate = @BirthDate, 
+                Linkedin = @Linkedin, Instagram = @Instagram, 
+                Facebook = @Facebook, Nationality = @Nationality,
                 About = @About, Goals = @Goals, Photo = @Photo
                 WHERE ID = @ID", entity);
+            }
 
             return rowsAffected == 1;
         }

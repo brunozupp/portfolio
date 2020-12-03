@@ -35,3 +35,4 @@ C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimes
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\ImageHelper.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\ImageHelper.pdb
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\obj\Debug\netcoreapp3.1\scopedcss\bundle\ApiProjeto.styles.css
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ApiProjeto\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

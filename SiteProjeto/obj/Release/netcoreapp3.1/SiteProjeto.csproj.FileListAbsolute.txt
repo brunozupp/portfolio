@@ -1,6 +1,5 @@
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\appsettings.Development.json
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\appsettings.json
-C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\SiteProjeto.exe
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\SiteProjeto.deps.json
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\SiteProjeto.runtimeconfig.json
@@ -42,7 +41,6 @@ C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimes
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Connections.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Extensions.dll
-C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.HttpOverrides.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.HttpsPolicy.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Identity.dll
@@ -126,7 +124,6 @@ C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimes
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Options.ConfigurationExtensions.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Options.DataAnnotations.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Options.dll
-C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Primitives.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.WebEncoders.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.JSInterop.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\Microsoft.Net.Http.Headers.dll
@@ -184,7 +181,6 @@ C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimes
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.Watcher.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\System.IO.IsolatedStorage.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\System.IO.MemoryMappedFiles.dll
-C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\System.IO.Pipelines.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\System.IO.Pipes.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\System.IO.UnmanagedMemoryStream.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\System.Linq.dll
@@ -290,6 +286,9 @@ C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimes
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\refs\WindowsBase.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\SiteProjeto.Views.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\SiteProjeto.Views.pdb
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\AutoMapper.dll
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
@@ -299,6 +298,7 @@ C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimes
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -315,6 +315,7 @@ C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimes
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\System.Composition.Hosting.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\System.Composition.Runtime.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\System.Composition.TypedParts.dll
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\System.IO.Pipelines.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\System.Text.Json.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
@@ -378,6 +379,9 @@ C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimes
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\SiteProjeto.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\SiteProjeto.RazorAssemblyInfo.cache
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\SiteProjeto.RazorAssemblyInfo.cs
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\staticwebassets\SiteProjeto.StaticWebAssets.Manifest.cache
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\staticwebassets\SiteProjeto.StaticWebAssets.xml
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\scopedcss\bundle\SiteProjeto.styles.css
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\SiteProjeto.TagHelpers.input.cache
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\SiteProjeto.TagHelpers.output.cache
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\SiteProjeto.RazorCoreGenerate.cache
@@ -406,8 +410,6 @@ C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimes
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\SiteProjeto.RazorTargetAssemblyInfo.cs
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\SiteProjeto.Views.pdb
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\SiteProjeto.csproj.CopyComplete
-C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\staticwebassets\SiteProjeto.StaticWebAssets.Manifest.cache
-C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\staticwebassets\SiteProjeto.StaticWebAssets.xml
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\SiteProjeto.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\SiteProjeto.pdb
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\SiteProjeto\obj\Release\netcoreapp3.1\SiteProjeto.genruntimeconfig.cache

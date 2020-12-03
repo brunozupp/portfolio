@@ -10,6 +10,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace SiteProjeto.Models.Services
@@ -18,6 +21,7 @@ namespace SiteProjeto.Models.Services
     {
         private readonly RestClient client;
         private readonly IMapper _mapper;
+        private readonly string BASE_URL;
 
         private const string BASE_REQUEST = "details";
 
@@ -25,6 +29,7 @@ namespace SiteProjeto.Models.Services
         {
             client = new RestClient(configuration.GetSection("urlAPI").Value);
             _mapper = mapper;
+            BASE_URL = configuration.GetSection("urlAPI").Value + "/" + BASE_REQUEST;
         }
 
         public async Task<ResponseAPI<Detail>> Get()
@@ -68,28 +73,42 @@ namespace SiteProjeto.Models.Services
             // Fazendo o AutoMapper
             Detail detail = _mapper.Map<Detail>(detailViewModel);
 
-            var request = new RestRequest(BASE_REQUEST).AddObject(detail);
-
-            if(detailViewModel.PhotoUpload != null)
+            using (var httpClient = new HttpClient())
             {
-                byte[] fileBytes = null;
+                var content = new MultipartFormDataContent();
 
-                using(var ms = new MemoryStream())
+                content.Add(
+                    new StringContent(JsonConvert.SerializeObject(detail), Encoding.UTF8, "multipart/form-data"),
+                    "obj"
+                );
+
+                if (detailViewModel.PhotoUpload != null)
                 {
-                    await detailViewModel.PhotoUpload.CopyToAsync(ms);
-                    fileBytes = ms.ToArray();
+
+                    byte[] fileBytes;
+
+                    using (var ms = new MemoryStream())
+                    {
+                        await detailViewModel.PhotoUpload.CopyToAsync(ms);
+                        fileBytes = ms.ToArray();
+                    }
+
+                    content.Add(new ByteArrayContent(fileBytes), "photo", detailViewModel.PhotoUpload.FileName);
                 }
 
-                request.AddFile("file", fileBytes, detailViewModel.PhotoUpload.FileName);
+                Uri uri = new Uri(BASE_URL);
+
+                using (var response = await httpClient.PostAsync(uri, content))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    
+                    responseAPI.StatusCode = (int)response.StatusCode;
+
+                    responseAPI.Content = (response.StatusCode != HttpStatusCode.OK)
+                    ? 0
+                    : JsonConvert.DeserializeObject<dynamic>(apiResponse).id;
+                }
             }
-
-            var response = await client.ExecuteAsync<dynamic>(request, Method.POST);
-
-            responseAPI.StatusCode = (int)response.StatusCode;
-
-            responseAPI.Content = (response.StatusCode != HttpStatusCode.OK)
-                ? 0
-                : JsonConvert.DeserializeObject<dynamic>(response.Content).id;
 
             return responseAPI;
         }
@@ -98,29 +117,109 @@ namespace SiteProjeto.Models.Services
         {
             ResponseAPI<object> responseAPI = new ResponseAPI<object>();
 
-            // Fazendo o AutoMapper
             Detail detail = _mapper.Map<Detail>(detailViewModel);
 
-            var request = new RestRequest(BASE_REQUEST).AddObject(detail);
-
-            if (detailViewModel.PhotoUpload != null)
+            using (var httpClient = new HttpClient())
             {
-                byte[] fileBytes = null;
+                var content = new MultipartFormDataContent();
 
-                using (var ms = new MemoryStream())
+                content.Add(
+                    new StringContent(JsonConvert.SerializeObject(detail), Encoding.UTF8, "multipart/form-data"), 
+                    "obj"
+                );
+
+                if (detailViewModel.PhotoUpload != null)
                 {
-                    await detailViewModel.PhotoUpload.CopyToAsync(ms);
-                    fileBytes = ms.ToArray();
+
+                    byte[] fileBytes;
+
+                    using (var ms = new MemoryStream())
+                    {
+                        await detailViewModel.PhotoUpload.CopyToAsync(ms);
+                        fileBytes = ms.ToArray();
+                    }
+
+                    content.Add(new ByteArrayContent(fileBytes), "photo", detailViewModel.PhotoUpload.FileName);
                 }
 
-                request.AddFile("file", fileBytes, detailViewModel.PhotoUpload.FileName);
+                Uri uri = new Uri(BASE_URL);
+
+                using (var response = await httpClient.PutAsync(uri, content))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    responseAPI.StatusCode = (int)response.StatusCode;
+                }
             }
-
-            var response = await client.ExecuteAsync(request, Method.PUT);
-
-            responseAPI.StatusCode = (int)response.StatusCode;
 
             return responseAPI;
         }
+
+        //public async Task<ResponseAPI<int>> Post(DetailViewModel detailViewModel)
+        //{
+        //    ResponseAPI<int> responseAPI = new ResponseAPI<int>();
+
+        //    // Fazendo o AutoMapper
+        //    Detail detail = _mapper.Map<Detail>(detailViewModel);
+
+        //    var request = new RestRequest(BASE_REQUEST).AddObject(detail);
+
+        //    if (detailViewModel.PhotoUpload != null)
+        //    {
+        //        byte[] fileBytes = null;
+
+        //        using (var ms = new MemoryStream())
+        //        {
+        //            detailViewModel.PhotoUpload.CopyTo(ms);
+        //            fileBytes = ms.ToArray();
+        //        }
+
+        //        request.AddFile("file", fileBytes, detailViewModel.PhotoUpload.FileName);
+        //    }
+
+        //    var response = await client.ExecuteAsync<dynamic>(request, Method.POST);
+
+        //    responseAPI.StatusCode = (int)response.StatusCode;
+
+        //    responseAPI.Content = (response.StatusCode != HttpStatusCode.OK)
+        //        ? 0
+        //        : JsonConvert.DeserializeObject<dynamic>(response.Content).id;
+
+        //    return responseAPI;
+        //}
+
+        //public async Task<ResponseAPI<object>> Put(DetailViewModel detailViewModel)
+        //{
+        //    ResponseAPI<object> responseAPI = new ResponseAPI<object>();
+
+        //    // Fazendo o AutoMapper
+        //    Detail detail = _mapper.Map<Detail>(detailViewModel);
+
+        //    var request = new RestRequest(BASE_REQUEST, Method.PUT).AddObject(detail);
+
+        //    request.AlwaysMultipartFormData = true;
+
+        //    //request.AddHeader("Content-Length", detailViewModel.PhotoUpload.Length.ToString());
+
+        //    request.AddHeader("content-type", "multipart/form-data");
+
+        //    if (detailViewModel.PhotoUpload != null)
+        //    {
+        //        byte[] fileBytes = null;
+
+        //        using (var ms = new MemoryStream())
+        //        {
+        //            detailViewModel.PhotoUpload.CopyTo(ms);
+        //            fileBytes = ms.ToArray();
+        //        }
+
+        //        request.AddFile("photo", fileBytes, detailViewModel.PhotoUpload.FileName);
+        //    }
+
+        //    var response = await client.ExecuteAsync(request);
+
+        //    responseAPI.StatusCode = (int)response.StatusCode;
+
+        //    return responseAPI;
+        //}
     }
 }

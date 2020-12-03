@@ -20,6 +20,8 @@ namespace ApiProjeto
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -30,6 +32,13 @@ namespace ApiProjeto
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options
+                    .AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
+
             services.AddControllers();
             services.AddScoped<ImageService>();
             services.AddScoped<Connection>();
@@ -38,6 +47,8 @@ namespace ApiProjeto
             services.AddScoped<DetailRepository>();
             services.AddScoped<ProjectRepository>();
             services.AddScoped<SkillRepository>();
+
+            services.AddDirectoryBrowser();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,6 +80,13 @@ namespace ApiProjeto
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(option =>
+            {
+                option.AllowAnyOrigin();
+                option.AllowAnyMethod();
+                option.AllowAnyHeader();
+            });
 
             app.UseAuthorization();
 

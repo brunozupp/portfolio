@@ -9,3 +9,9 @@
 .column-actions {
     width:12%
 }
+
+.btn.deleteConfirmation {
+    vertical-align: top !important;
+    padding-top: 2px;
+    padding-left: 0px;
+}

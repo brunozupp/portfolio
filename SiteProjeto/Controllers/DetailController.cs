@@ -62,7 +62,7 @@ namespace SiteProjeto.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("title", "As validações não foram atendidas");
+                ModelState.AddModelError("Name", "As validações não foram atendidas");
                 return View(detailViewModel);
             }
 
@@ -76,7 +76,7 @@ namespace SiteProjeto.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("title", "Erro ao atualizar o registro");
+                    ModelState.AddModelError("Name", "Erro ao atualizar o registro");
                     return View(detailViewModel);
                 }
 

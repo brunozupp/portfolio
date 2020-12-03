@@ -1,9 +1,9 @@
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ImageHelper\bin\Debug\netcoreapp3.1\ImageHelper.deps.json
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ImageHelper\bin\Debug\netcoreapp3.1\ImageHelper.dll
-C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ImageHelper\obj\Debug\netcoreapp3.1\ImageHelper.csprojAssemblyReference.cache
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ImageHelper\obj\Debug\netcoreapp3.1\ImageHelper.AssemblyInfoInputs.cache
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ImageHelper\obj\Debug\netcoreapp3.1\ImageHelper.AssemblyInfo.cs
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ImageHelper\bin\Debug\netcoreapp3.1\ImageHelper.pdb
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ImageHelper\obj\Debug\netcoreapp3.1\ImageHelper.csproj.CoreCompileInputs.cache
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ImageHelper\obj\Debug\netcoreapp3.1\ImageHelper.dll
 C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ImageHelper\obj\Debug\netcoreapp3.1\ImageHelper.pdb
+C:\Users\bruni\Desktop\Semestre8\Programacao\PrimeiroBimestre\ProvaPrimeiroBimestre\ImageHelper\obj\Debug\netcoreapp3.1\ImageHelper.csprojAssemblyReference.cache
